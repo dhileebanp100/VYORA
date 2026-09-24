@@ -1,0 +1,3900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>VYORA | Biomedical Waste Intelligence</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --cream:#f7f1e7;
+    --cream2:#fffaf2;
+    --brown:#62483a;
+    --brown-dark:#3f2e25;
+    --olive:#74785a;
+    --olive-light:#e6e7d7;
+    --gold:#b58b52;
+    --text:#302822;
+    --muted:#7c7168;
+    --white:#ffffff;
+    --border:#e8ddd0;
+    --success:#687b52;
+    --warning:#b88742;
+    --danger:#a95345;
+    --blue:#667b88;
+    --shadow:0 18px 50px rgba(73,53,39,.10);
+
+    --font-display:'Fraunces',Georgia,serif;
+    --font-body:'Inter',Segoe UI,Arial,sans-serif;
+
+    --fs-base:18px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:var(--font-body);
+}
+
+html{
+    font-size:var(--fs-base);
+}
+
+body{
+    background:var(--cream);
+    color:var(--text);
+    font-size:1rem;
+    line-height:1.5;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+h1,h2,h3,h4{
+    font-family:var(--font-display);
+    font-weight:600;
+    letter-spacing:-0.01em;
+}
+
+/* ================= LANDING ================= */
+
+.landing{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+    background:
+        radial-gradient(circle at 10% 10%,#fffdf8 0,transparent 30%),
+        radial-gradient(circle at 90% 90%,#ebe4d6 0,transparent 35%),
+        var(--cream);
+}
+
+.landing-wrap{
+    width:100%;
+    max-width:1160px;
+}
+
+.logo-area{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.logo-mark{
+    width:88px;
+    height:88px;
+    margin:auto;
+    border-radius:26px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--brown);
+    color:white;
+    font-size:34px;
+    box-shadow:0 15px 35px rgba(98,72,58,.22);
+}
+
+.logo-area h1{
+    margin-top:22px;
+    font-size:3.2rem;
+    letter-spacing:0.06em;
+    color:var(--brown-dark);
+    font-weight:700;
+}
+
+.logo-area p{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:1rem;
+    letter-spacing:0.04em;
+}
+
+.choose-title{
+    text-align:center;
+    margin-bottom:26px;
+}
+
+.choose-title h2{
+    font-size:1.7rem;
+}
+
+.choose-title p{
+    margin-top:8px;
+    color:var(--muted);
+    font-size:1.05rem;
+}
+
+.role-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    align-items:stretch;
+}
+
+.role-card{
+    background:rgba(255,255,255,.8);
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:28px 24px 24px;
+    transition:.25s;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    min-height:330px;
+}
+
+.role-card:hover{
+    transform:translateY(-7px);
+    border-color:#cdbda9;
+}
+
+.role-icon{
+    width:62px;
+    height:62px;
+    min-width:62px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--olive-light);
+    font-size:28px;
+    margin:0 auto 20px;
+}
+
+.role-card h3{
+    color:var(--brown-dark);
+    margin-bottom:10px;
+    font-size:1.25rem;
+    text-align:center;
+    min-height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.role-card p{
+    font-size:0.95rem;
+    color:var(--muted);
+    line-height:1.6;
+    min-height:76px;
+    margin:0;
+    text-align:center;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+}
+
+.role-card button{
+    width:100%;
+    margin-top:auto;
+    padding:13px;
+    border:0;
+    border-radius:12px;
+    background:var(--brown);
+    color:white;
+    font-size:0.95rem;
+    font-weight:600;
+    min-height:46px;
+}
+
+/* ================= LOGIN ================= */
+
+.login-screen{
+    min-height:100vh;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+    background:var(--cream);
+}
+
+.login-box{
+    width:100%;
+    max-width:940px;
+    background:white;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    display:grid;
+    grid-template-columns:1fr 1.15fr;
+}
+
+.login-intro{
+    background:var(--brown-dark);
+    color:white;
+    padding:48px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.login-intro .mini-logo{
+    font-family:var(--font-display);
+    font-size:1.7rem;
+    letter-spacing:0.08em;
+    margin-bottom:32px;
+    font-weight:700;
+}
+
+.login-intro h2{
+    font-size:1.9rem;
+    margin-bottom:16px;
+}
+
+.login-intro p{
+    color:#ddd0c5;
+    line-height:1.7;
+    font-size:1rem;
+}
+
+.login-features{
+    margin-top:30px;
+}
+
+.login-features div{
+    margin:12px 0;
+    font-size:0.95rem;
+    color:#e7ddd5;
+}
+
+.login-form{
+    padding:48px;
+}
+
+.back{
+    border:0;
+    background:none;
+    color:var(--muted);
+    margin-bottom:25px;
+    font-size:0.95rem;
+}
+
+.login-form h2{
+    font-size:1.8rem;
+    color:var(--brown-dark);
+}
+
+.login-form .sub{
+    color:var(--muted);
+    margin:8px 0 25px;
+    font-size:0.95rem;
+}
+
+.field{
+    margin-bottom:18px;
+}
+
+.field label{
+    display:block;
+    font-size:0.9rem;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.field input,
+.field select{
+    width:100%;
+    padding:14px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:#fffdf9;
+    outline:none;
+    font-size:1rem;
+}
+
+.field input:focus,
+.field select:focus{
+    border-color:var(--gold);
+}
+
+.login-btn{
+    width:100%;
+    border:0;
+    padding:15px;
+    border-radius:13px;
+    background:var(--brown);
+    color:white;
+    font-weight:700;
+    margin-top:8px;
+    font-size:1rem;
+}
+
+/* ================= APP ================= */
+
+.app{
+    display:none;
+    min-height:100vh;
+}
+
+.topbar{
+    height:76px;
+    background:rgba(255,255,255,.94);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 30px;
+    position:sticky;
+    top:0;
+    z-index:20;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.brand-symbol{
+    width:42px;
+    height:42px;
+    border-radius:13px;
+    background:var(--brown);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.1rem;
+}
+
+.brand-name{
+    font-family:var(--font-display);
+    font-weight:700;
+    letter-spacing:0.06em;
+    color:var(--brown-dark);
+    font-size:1.2rem;
+}
+
+.top-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.user-pill{
+    padding:10px 15px;
+    border-radius:20px;
+    background:var(--cream);
+    color:var(--brown);
+    font-size:0.9rem;
+    font-weight:600;
+}
+
+.logout{
+    border:1px solid var(--border);
+    background:white;
+    padding:10px 16px;
+    border-radius:10px;
+    color:var(--brown);
+    font-size:0.9rem;
+}
+
+/* ================= APP LAYOUT ================= */
+
+.layout{
+    display:flex;
+}
+
+.sidebar{
+    width:255px;
+    min-height:calc(100vh - 76px);
+    background:#fffdf9;
+    border-right:1px solid var(--border);
+    padding:24px 16px;
+}
+
+.sidebar-title{
+    font-size:0.75rem;
+    color:#a1978e;
+    letter-spacing:0.08em;
+    padding:0 12px 12px;
+}
+
+.nav-btn{
+    width:100%;
+    border:0;
+    background:transparent;
+    padding:14px;
+    border-radius:12px;
+    text-align:left;
+    color:#70675f;
+    margin-bottom:5px;
+    font-size:0.98rem;
+}
+
+.nav-btn:hover,
+.nav-btn.active{
+    background:var(--olive-light);
+    color:var(--brown-dark);
+    font-weight:700;
+}
+
+.main{
+    flex:1;
+    padding:32px;
+    max-width:1500px;
+}
+
+/* ================= COMMON ================= */
+
+.page-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:26px;
+}
+
+.page-head h1{
+    font-size:2rem;
+    color:var(--brown-dark);
+}
+
+.page-head p{
+    color:var(--muted);
+    margin-top:6px;
+    font-size:1rem;
+}
+
+.primary{
+    border:0;
+    background:var(--brown);
+    color:white;
+    padding:13px 19px;
+    border-radius:11px;
+    font-weight:700;
+    font-size:0.95rem;
+}
+
+.secondary{
+    border:1px solid var(--border);
+    background:white;
+    color:var(--brown);
+    padding:12px 17px;
+    border-radius:11px;
+    font-size:0.95rem;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:24px;
+}
+
+.stat{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:21px;
+    box-shadow:0 8px 25px rgba(73,53,39,.04);
+}
+
+.stat-top{
+    display:flex;
+    justify-content:space-between;
+    color:var(--muted);
+    font-size:0.9rem;
+}
+
+.stat-number{
+    margin-top:13px;
+    font-family:var(--font-display);
+    font-size:2rem;
+    font-weight:700;
+    color:var(--brown-dark);
+}
+
+.grid2{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+.panel{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:24px;
+    margin-bottom:20px;
+}
+
+.panel h2{
+    font-size:1.25rem;
+    color:var(--brown-dark);
+    margin-bottom:18px;
+}
+
+.panel-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 0;
+    border-bottom:1px solid #eee6dd;
+    font-size:0.98rem;
+}
+
+.row:last-child{
+    border-bottom:0;
+}
+
+.label{
+    color:var(--muted);
+    font-size:0.95rem;
+}
+
+.value{
+    font-weight:700;
+    color:var(--brown-dark);
+    text-align:right;
+}
+
+.badge{
+    display:inline-flex;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:0.8rem;
+    font-weight:800;
+}
+
+.badge.green{
+    background:#e7ecdc;
+    color:#536440;
+}
+
+.badge.orange{
+    background:#f8ead6;
+    color:#9a6827;
+}
+
+.badge.blue{
+    background:#e1e8ea;
+    color:#536d77;
+}
+
+.badge.red{
+    background:#f4dfdc;
+    color:#94463d;
+}
+
+.timeline{
+    position:relative;
+    padding-left:28px;
+}
+
+.timeline:before{
+    content:"";
+    position:absolute;
+    left:8px;
+    top:5px;
+    bottom:5px;
+    width:2px;
+    background:#ddd2c6;
+}
+
+.timeline-item{
+    position:relative;
+    padding-bottom:23px;
+}
+
+.timeline-dot{
+    position:absolute;
+    left:-26px;
+    top:3px;
+    width:13px;
+    height:13px;
+    border-radius:50%;
+    background:var(--olive);
+    border:3px solid white;
+    box-shadow:0 0 0 1px #d5cbbb;
+}
+
+.timeline-item h4{
+    font-size:1rem;
+}
+
+.timeline-item p{
+    font-size:0.9rem;
+    color:var(--muted);
+    margin-top:5px;
+}
+
+/* ================= HOSPITAL ================= */
+
+.profile-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.profile-item{
+    padding:15px;
+    background:var(--cream2);
+    border:1px solid var(--border);
+    border-radius:13px;
+}
+
+.profile-item span{
+    display:block;
+    font-size:0.82rem;
+    color:var(--muted);
+    margin-bottom:6px;
+}
+
+.profile-item strong{
+    font-size:1rem;
+}
+
+.waste-grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    grid-auto-rows:270px;
+    gap:16px;
+    align-items:stretch;
+}
+
+.waste-card{
+    position:relative;
+    border:2px solid transparent;
+    padding:20px 17px;
+    border-radius:14px;
+    background:#fffdfa;
+    cursor:pointer;
+    text-align:left;
+    height:270px;
+    min-height:270px;
+    transition:.2s;
+    width:100%;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+}
+
+.waste-card h4{
+    font-size:1rem;
+    margin-bottom:7px;
+    min-height:24px;
+}
+
+.waste-card p{
+    margin:0;
+    color:var(--muted);
+    font-size:0.85rem;
+    min-height:20px;
+}
+
+.waste-card.infectious{
+    border-color:#e5c84a;
+    background:#fff8c9;
+}
+
+.waste-card.sharps{
+    border-color:#c8c8c8;
+    background:#f7f7f7;
+}
+
+.waste-card.pharmaceutical{
+    border-color:#d95c5c;
+    background:#ffe1e1;
+}
+
+.waste-card.other-biomedical{
+    border-color:#5d91d8;
+    background:#dfeeff;
+}
+
+.waste-card.selected{
+    box-shadow:0 0 0 3px rgba(77,90,73,.22);
+    transform:translateY(-2px);
+}
+
+.waste-card.selected::after{
+    content:"✓ SELECTED";
+    position:absolute;
+    top:14px;
+    right:14px;
+    font-size:0.72rem;
+    font-weight:800;
+    color:var(--brown-dark);
+    background:rgba(255,255,255,.78);
+    border-radius:20px;
+    padding:5px 8px;
+}
+
+.waste-weight-label{
+    display:block;
+    margin-top:auto;
+    margin-bottom:6px;
+    font-size:0.78rem;
+    font-weight:700;
+    color:var(--brown-dark);
+}
+
+.waste-weight-input{
+    width:100%;
+    padding:9px 10px;
+    border:1px solid var(--border);
+    border-radius:9px;
+    background:#fff;
+    font-size:0.88rem;
+    box-sizing:border-box;
+}
+
+.waste-card.selected .waste-weight-input{
+    cursor:text;
+}
+
+/* ================= WORKER WASTE CARD COMPACT ================= */
+.worker-waste-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    grid-auto-rows:88px;
+    gap:12px;
+}
+
+.worker-waste-grid .waste-card{
+    height:88px;
+    min-height:88px;
+    padding:12px 14px;
+}
+
+/* ================= ROLE HISTORY COMPACT ================= */
+
+.history-compact-panel{
+    padding:18px;
+}
+
+.history-compact-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--border);
+}
+
+.history-compact-head strong{
+    display:block;
+    color:var(--brown-dark);
+    font-size:1rem;
+}
+
+.history-compact-head span:not(.badge){
+    display:block;
+    margin-top:4px;
+    color:var(--muted);
+    font-size:.78rem;
+}
+
+.history-mini-grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:10px;
+    margin-top:12px;
+}
+
+.history-mini-card{
+    min-width:0;
+    padding:11px 12px;
+    border:1px solid var(--border);
+    border-radius:11px;
+    background:#fffdfa;
+    box-sizing:border-box;
+}
+
+.history-mini-card span,
+.history-waste-mini>span{
+    display:block;
+    color:var(--muted);
+    font-size:.72rem;
+    margin-bottom:5px;
+}
+
+.history-mini-card strong{
+    display:block;
+    color:var(--brown-dark);
+    font-size:.86rem;
+    line-height:1.35;
+}
+
+.history-waste-mini{
+    margin-top:12px;
+    padding:11px 12px;
+    border:1px solid var(--border);
+    border-radius:11px;
+    background:#fffdfa;
+}
+
+/* Worker history only: keep waste details box exactly as tall as its content */
+.worker-history-waste-mini{
+    height:fit-content !important;
+    min-height:0 !important;
+    max-height:none !important;
+    padding:10px 12px;
+    align-self:flex-start;
+    box-sizing:border-box;
+}
+
+.worker-history-waste-mini .history-waste-list{
+    height:auto !important;
+    min-height:0 !important;
+    grid-auto-rows:max-content;
+    align-items:start;
+}
+
+.worker-history-waste-mini .history-waste-item{
+    height:auto !important;
+    min-height:0 !important;
+}
+
+.history-waste-list{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+}
+
+.history-waste-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    min-width:0;
+    padding:8px 10px;
+    border-radius:9px;
+    background:var(--cream2);
+}
+
+.history-waste-item strong,
+.history-waste-item span{
+    font-size:.78rem;
+}
+
+.history-waste-item strong{
+    color:var(--brown-dark);
+}
+
+.history-waste-item span{
+    color:var(--muted);
+    white-space:nowrap;
+}
+
+.history-status-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+.waste-ready-btn{
+    min-width:145px;
+}
+
+.waste-ready-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.waste-ready-message{
+    margin-top:14px;
+    font-size:.88rem;
+    color:var(--muted);
+}
+
+
+.request-status{
+    background:var(--cream);
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:24px;
+    width:100%;
+    min-height:285px;
+    box-sizing:border-box;
+}
+
+.collection-progress{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:16px;
+    margin-top:20px;
+}
+
+.collection-step{
+    min-height:125px;
+    padding:20px;
+    border:1px solid var(--border);
+    border-radius:16px;
+    background:white;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.collection-step .step-number{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:11px;
+    background:#eee7de;
+    color:var(--brown-dark);
+    font-weight:800;
+}
+
+.collection-step strong{
+    color:var(--brown-dark);
+    font-size:.95rem;
+}
+
+.collection-step span{
+    margin-top:5px;
+    color:var(--muted);
+    font-size:.82rem;
+}
+
+.collection-step.done{
+    background:#eef2e8;
+    border-color:#cfd8c5;
+}
+
+.collection-step.active{
+    background:#fff5e5;
+    border-color:#e4c996;
+}
+
+.collection-step.done .step-number{
+    background:#dce6d2;
+}
+
+.collection-step.active .step-number{
+    background:#f0dfbb;
+}
+
+.request-actions{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+}
+
+.otp-display{
+    text-align:center;
+    padding:30px;
+    border-radius:18px;
+    background:#f2eee4;
+}
+
+.otp-number{
+    font-family:var(--font-display);
+    font-size:2.6rem;
+    letter-spacing:0.2em;
+    font-weight:700;
+    color:var(--brown-dark);
+    margin:14px 0;
+}
+
+/* ================= WORKER ================= */
+
+.job-card{
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:21px;
+    background:#fffdf9;
+}
+
+.job-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.job-id{
+    font-size:0.85rem;
+    color:var(--muted);
+}
+
+.job-title{
+    font-size:1.35rem;
+    margin-top:6px;
+    font-family:var(--font-display);
+}
+
+.action-row{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.otp-input{
+    letter-spacing:0.3em;
+    font-size:1.5rem!important;
+    text-align:center;
+}
+
+/* ================= WORKERS ================= */
+
+.worker-list{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.worker-card{
+    padding:19px;
+    border:1px solid var(--border);
+    border-radius:16px;
+}
+
+.worker-card h3{
+    font-size:1.1rem;
+    margin-bottom:8px;
+}
+
+.worker-card p{
+    color:var(--muted);
+    font-size:0.88rem;
+    margin:5px 0;
+}
+
+.worker-card .primary{
+    width:100%;
+    margin-top:14px;
+}
+
+/* ================= NOTIFICATIONS ================= */
+
+.notification{
+    display:flex;
+    gap:15px;
+    padding:17px;
+    border:1px solid var(--border);
+    border-radius:15px;
+    background:#fffdfa;
+    margin-bottom:12px;
+}
+
+.notification-icon{
+    min-width:44px;
+    height:44px;
+    border-radius:13px;
+    background:var(--olive-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.1rem;
+}
+
+.notification strong{
+    font-size:1rem;
+}
+
+.notification p{
+    color:var(--muted);
+    font-size:0.9rem;
+    margin-top:6px;
+    line-height:1.5;
+}
+
+.notification-compact-list{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+}
+
+.notification.notification-compact{
+    margin-bottom:0;
+    min-height:0;
+    padding:12px;
+    gap:11px;
+    align-items:flex-start;
+    box-sizing:border-box;
+}
+
+.notification.notification-compact .notification-icon{
+    min-width:36px;
+    width:36px;
+    height:36px;
+    border-radius:10px;
+    font-size:.95rem;
+}
+
+.notification.notification-compact strong{
+    font-size:.9rem;
+    line-height:1.3;
+}
+
+.notification.notification-compact p{
+    font-size:.78rem;
+    line-height:1.4;
+    margin-top:4px;
+}
+
+/* ================= NOTIFICATION POPUP + SOUND ================= */
+
+.notification-popup{
+    position:fixed;
+    top:22px;
+    right:22px;
+    width:min(380px,calc(100vw - 44px));
+    padding:17px 18px;
+    background:#fffdfa;
+    border:1px solid var(--border);
+    border-left:5px solid var(--brown);
+    border-radius:16px;
+    box-shadow:0 18px 45px rgba(73,53,39,.20);
+    z-index:9999;
+    display:none;
+    animation:notificationIn .25s ease;
+}
+
+.notification-popup.show{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+}
+
+.notification-popup-icon{
+    min-width:42px;
+    height:42px;
+    border-radius:12px;
+    background:var(--olive-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.05rem;
+}
+
+.notification-popup-content{
+    flex:1;
+}
+
+.notification-popup-content strong{
+    display:block;
+    color:var(--brown-dark);
+    font-size:.98rem;
+}
+
+.notification-popup-content p{
+    margin-top:4px;
+    color:var(--muted);
+    font-size:.86rem;
+    line-height:1.45;
+}
+
+@keyframes notificationIn{
+    from{opacity:0;transform:translateY(-10px) translateX(10px)}
+    to{opacity:1;transform:translateY(0) translateX(0)}
+}
+
+@media(max-width:900px){
+    .history-mini-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .notification-compact-list{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+    .history-waste-list{
+        grid-template-columns:1fr;
+    }
+
+    .history-status-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1000px){
+
+    .role-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .grid2{
+        grid-template-columns:1fr;
+    }
+
+    .waste-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .collection-progress{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .sidebar{
+        width:215px;
+    }
+
+}
+
+@media(max-width:700px){
+
+    :root{
+        --fs-base:17px;
+    }
+
+    .landing{
+        padding:20px;
+    }
+
+    .logo-area h1{
+        font-size:2.2rem;
+    }
+
+    .role-grid{
+        grid-template-columns:1fr;
+    }
+
+    .login-box{
+        grid-template-columns:1fr;
+    }
+
+    .login-intro{
+        display:none;
+    }
+
+    .login-form{
+        padding:30px;
+    }
+
+    .sidebar{
+        display:none;
+    }
+
+    .main{
+        padding:18px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .waste-grid,
+    .worker-list,
+    .collection-progress{
+        grid-template-columns:1fr;
+    }
+
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
+
+    .topbar{
+        padding:0 15px;
+    }
+
+    .user-pill{
+        display:none;
+    }
+
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="notification-popup" id="notificationPopup">
+    <div class="notification-popup-icon">🔔</div>
+    <div class="notification-popup-content">
+        <strong id="notificationPopupTitle">Notification</strong>
+        <p id="notificationPopupText"></p>
+    </div>
+</div>
+
+<!-- =====================================================
+LANDING
+===================================================== -->
+
+<section class="landing" id="landing">
+
+<div class="landing-wrap">
+
+<div class="logo-area">
+
+<div class="logo-mark">♻</div>
+
+<h1>VYORA</h1>
+
+<p>BIOMEDICAL WASTE INTELLIGENCE & TRACEABILITY</p>
+
+</div>
+
+<div class="choose-title">
+
+<h2>Choose your access</h2>
+
+<p>Select your role to continue to the dedicated workspace.</p>
+
+</div>
+
+<div class="role-grid">
+
+<div class="role-card">
+
+<div class="role-icon">🏥</div>
+
+<h3>Hospital Management</h3>
+
+<p>Create waste requests, manage waste details and receive collection verification.</p>
+
+<button onclick="openLogin('hospital')">
+Continue
+</button>
+
+</div>
+
+<div class="role-card">
+
+<div class="role-icon">👨‍💼</div>
+
+<h3>Area Supervisor</h3>
+
+<p>Monitor requests and assign available collection workers.</p>
+
+<button onclick="openLogin('supervisor')">
+Continue
+</button>
+
+</div>
+
+<div class="role-card">
+
+<div class="role-icon">🚛</div>
+
+<h3>Waste Collector</h3>
+
+<p>View assigned jobs, reach hospitals and verify collection using OTP.</p>
+
+<button onclick="openLogin('worker')">
+Continue
+</button>
+
+</div>
+
+<div class="role-card">
+
+<div class="role-icon">♻️</div>
+
+<h3>CBWTF Authority</h3>
+
+<p>Receive biomedical waste, verify weight and complete disposal tracking.</p>
+
+<button onclick="openLogin('cbwtf')">
+Continue
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+LOGIN
+===================================================== -->
+
+<section class="login-screen" id="loginScreen">
+
+<div class="login-box">
+
+<div class="login-intro">
+
+<div class="mini-logo">VYORA</div>
+
+<h2 id="loginRoleTitle">
+Hospital Management
+</h2>
+
+<p id="loginRoleDescription">
+Secure access for registered hospital management.
+</p>
+
+<div class="login-features">
+
+<div>✓ Role-based access</div>
+<div>✓ Verified identity</div>
+<div>✓ End-to-end waste traceability</div>
+<div>✓ Centralized records</div>
+
+</div>
+
+</div>
+
+<div class="login-form">
+
+<button class="back" onclick="backToRoles()">
+← Back to roles
+</button>
+
+<h2>Sign in</h2>
+
+<p class="sub" id="loginSub">
+Use your registered credentials.
+</p>
+
+<div id="loginFields"></div>
+
+<button class="login-btn" onclick="performLogin()">
+Enter VYORA
+</button>
+
+<p style="font-size:0.8rem;color:#999;margin-top:15px;text-align:center">
+Demo credentials are provided inside the application.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+APPLICATION
+===================================================== -->
+
+<section class="app" id="app">
+
+<header class="topbar">
+
+<div class="brand">
+
+<div class="brand-symbol">♻</div>
+
+<div class="brand-name">VYORA</div>
+
+</div>
+
+<div class="top-right">
+
+<div class="user-pill" id="userPill">
+User
+</div>
+
+<button class="logout" onclick="logout()">
+Logout
+</button>
+
+</div>
+
+</header>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<div class="sidebar-title">
+Workspace
+</div>
+
+<button class="nav-btn active" onclick="showPage('dashboard',this)">
+⌂ Dashboard
+</button>
+
+<button class="nav-btn" onclick="showPage('notifications',this)">
+◉ Notifications
+</button>
+
+<button class="nav-btn" onclick="showPage('tracking',this)">
+↗ Waste Tracking
+</button>
+
+<button class="nav-btn" onclick="showPage('history',this)">
+▤ History
+</button>
+
+<button class="nav-btn" onclick="showPage('profile',this)">
+◎ Profile
+</button>
+
+</aside>
+
+<main class="main" id="mainContent"></main>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* =====================================================
+STATE
+===================================================== */
+
+let selectedRole="";
+let currentRole="";
+let currentUser={};
+
+let appState={
+    request:null,
+    assignedWorker:null,
+    otp:null,
+    notifications:[],
+    seenNotifications:{},
+    actualWeight:null,
+    processing:false,
+    disposed:false,
+    wasteReady:false,
+    selectedWaste:{
+        infectious:false,
+        sharps:false,
+        pharmaceutical:false,
+        otherBiomedical:false
+    },
+    wasteWeights:{
+        infectious:"",
+        sharps:"",
+        pharmaceutical:"",
+        otherBiomedical:""
+    }
+};
+
+
+/* =====================================================
+ROLE CONFIG
+===================================================== */
+
+const roles={
+
+hospital:{
+    title:"Hospital Management",
+    description:"Secure access for registered hospital management.",
+    fields:`
+        <div class="field">
+            <label>Hospital ID</label>
+            <input id="loginId" value="HOSP-1024">
+        </div>
+
+        <div class="field">
+            <label>Management User ID</label>
+            <input id="loginUser" value="HOSP-MGR-01">
+        </div>
+
+        <div class="field">
+            <label>Password</label>
+            <input id="loginPassword" type="password" value="1234">
+        </div>
+    `
+},
+
+supervisor:{
+    title:"Area Supervisor",
+    description:"Supervisor access for collection assignment and monitoring.",
+    fields:`
+        <div class="field">
+            <label>Supervisor ID</label>
+            <input id="loginId" value="SUP-MDU-01">
+        </div>
+
+        <div class="field">
+            <label>Password</label>
+            <input id="loginPassword" type="password" value="1234">
+        </div>
+    `
+},
+
+worker:{
+    title:"Waste Collection Worker",
+    description:"Collector workspace for assigned hospital collection jobs.",
+    fields:`
+        <div class="field">
+            <label>Worker ID</label>
+            <input id="loginId" value="WORK-001">
+        </div>
+
+        <div class="field">
+            <label>Mobile Number</label>
+            <input id="loginMobile" value="9876543210">
+        </div>
+
+        <div class="field">
+            <label>Password</label>
+            <input id="loginPassword" type="password" value="1234">
+        </div>
+    `
+},
+
+cbwtf:{
+    title:"CBWTF Authority",
+    description:"Authorized facility workspace for biomedical waste receipt and disposal.",
+    fields:`
+        <div class="field">
+            <label>CBWTF Facility ID</label>
+            <input id="loginId" value="CBWTF-MDU-01">
+        </div>
+
+        <div class="field">
+            <label>Authority User ID</label>
+            <input id="loginUser" value="AUTH-01">
+        </div>
+
+        <div class="field">
+            <label>Password</label>
+            <input id="loginPassword" type="password" value="1234">
+        </div>
+    `
+}
+
+};
+
+
+/* =====================================================
+LOGIN
+===================================================== */
+
+function openLogin(role){
+
+    selectedRole=role;
+
+    document.getElementById("landing").style.display="none";
+    document.getElementById("loginScreen").style.display="flex";
+
+    document.getElementById("loginRoleTitle").innerText=
+        roles[role].title;
+
+    document.getElementById("loginRoleDescription").innerText=
+        roles[role].description;
+
+    document.getElementById("loginFields").innerHTML=
+        roles[role].fields;
+}
+
+function backToRoles(){
+
+    document.getElementById("loginScreen").style.display="none";
+    document.getElementById("landing").style.display="flex";
+}
+
+async function performLogin(){
+
+    const password=
+        document.getElementById("loginPassword").value;
+
+    if(password!=="1234"){
+        alert("Demo password: 1234");
+        return;
+    }
+
+    currentRole=selectedRole;
+
+    currentUser={
+        role:selectedRole
+    };
+
+    document.getElementById("loginScreen").style.display="none";
+    document.getElementById("app").style.display="block";
+
+    document.getElementById("userPill").innerText=
+        roles[currentRole].title;
+
+    loadDashboard();
+    setTimeout(showLatestPendingNotification,120);
+}
+
+
+/* =====================================================
+LOGOUT
+===================================================== */
+
+function logout(){
+
+    currentRole="";
+    currentUser={};
+
+    document.getElementById("app").style.display="none";
+    document.getElementById("landing").style.display="flex";
+}
+
+
+/* =====================================================
+PAGE NAVIGATION
+===================================================== */
+
+function showPage(page,button){
+
+    document.querySelectorAll(".nav-btn")
+        .forEach(btn=>btn.classList.remove("active"));
+
+    if(button) button.classList.add("active");
+
+    if(page==="dashboard") loadDashboard();
+    if(page==="notifications") notificationsPage();
+    if(page==="tracking") trackingPage();
+    if(page==="history") historyPage();
+    if(page==="profile") profilePage();
+}
+
+
+/* =====================================================
+DASHBOARD SWITCH
+===================================================== */
+
+function loadDashboard(){
+
+    if(currentRole==="hospital") hospitalDashboard();
+
+    if(currentRole==="supervisor") supervisorDashboard();
+
+    if(currentRole==="worker") loadWorkerAssignment();
+
+    if(currentRole==="cbwtf") cbwtfDashboard();
+}
+
+
+/* =====================================================
+HOSPITAL DASHBOARD
+===================================================== */
+
+function hospitalDashboard(){
+
+const selectedWaste=Object.keys(appState.selectedWaste)
+    .filter(key=>appState.selectedWaste[key]);
+
+const selectedNames={
+    infectious:"Infectious",
+    sharps:"Sharps",
+    pharmaceutical:"Pharmaceutical",
+    otherBiomedical:"Other Biomedical"
+};
+
+const hasWasteSelected=selectedWaste.length>0;
+
+const selectedWasteText=selectedWaste.length
+    ? selectedWaste.map(key=>selectedNames[key]).join(", ")
+    : "No waste type selected";
+
+const hospitalRequestStatus = appState.request ? appState.request.status : "";
+const collectionStage = !appState.request ? 0
+    : hospitalRequestStatus === "Request Sent" ? 1
+    : hospitalRequestStatus === "Worker Assigned" || hospitalRequestStatus === "OTP Pending" ? 2
+    : 3;
+
+document.getElementById("mainContent").innerHTML=`
+
+<div class="page-head">
+
+<div>
+<h1>Hospital Management</h1>
+<p>Monitor biomedical waste readiness and collection.</p>
+</div>
+
+<button class="secondary" onclick="profilePage()">
+Hospital Profile
+</button>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+<div class="stat-top">
+<span>Waste Ready</span>
+<span>◉</span>
+</div>
+<div class="stat-number" style="font-size:1.25rem">
+${appState.wasteReady ? "READY" : "NOT READY"}
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-top">
+<span>Pending Collection</span>
+<span>◷</span>
+</div>
+<div class="stat-number">
+${appState.request ? "1":"0"}
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-top">
+<span>Collected</span>
+<span>✓</span>
+</div>
+<div class="stat-number">
+12
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-top">
+<span>Completed</span>
+<span>✓</span>
+</div>
+<div class="stat-number">
+8
+</div>
+</div>
+
+</div>
+
+
+<div class="grid2">
+
+<div>
+
+<div class="panel">
+
+<div class="panel-head">
+<h2>Waste Prepared for Collection</h2>
+
+${hasWasteSelected || appState.wasteReady ? `
+<button class="primary waste-ready-btn"
+onclick="markWasteReady()"
+${appState.wasteReady || appState.request ? "disabled":""}>
+${appState.wasteReady ? "✓ WASTE READY" : "Mark Waste Ready"}
+</button>
+` : ""}
+
+</div>
+
+<p style="font-size:0.9rem;color:#7c7168;margin-bottom:16px">
+Select the waste types available today and enter the approximate weight for each selected category.
+</p>
+
+<div class="waste-grid">
+
+<div class="waste-card infectious ${appState.selectedWaste.infectious ? "selected":""}"
+onclick="toggleWaste('infectious')">
+<h4>Infectious</h4>
+<p>Yellow category</p>
+${appState.selectedWaste.infectious ? `
+<label class="waste-weight-label">Approx. weight (kg)</label>
+<input class="waste-weight-input" type="number" min="0" step="0.1" placeholder="Enter kg" value="${appState.wasteWeights.infectious}" onclick="event.stopPropagation()" oninput="updateWasteWeight('infectious',this.value)">
+` : ""}
+</div>
+
+<div class="waste-card sharps ${appState.selectedWaste.sharps ? "selected":""}"
+onclick="toggleWaste('sharps')">
+<h4>Sharps</h4>
+<p>White category</p>
+${appState.selectedWaste.sharps ? `
+<label class="waste-weight-label">Approx. weight (kg)</label>
+<input class="waste-weight-input" type="number" min="0" step="0.1" placeholder="Enter kg" value="${appState.wasteWeights.sharps}" onclick="event.stopPropagation()" oninput="updateWasteWeight('sharps',this.value)">
+` : ""}
+</div>
+
+<div class="waste-card pharmaceutical ${appState.selectedWaste.pharmaceutical ? "selected":""}"
+onclick="toggleWaste('pharmaceutical')">
+<h4>Pharmaceutical</h4>
+<p>Red category</p>
+${appState.selectedWaste.pharmaceutical ? `
+<label class="waste-weight-label">Approx. weight (kg)</label>
+<input class="waste-weight-input" type="number" min="0" step="0.1" placeholder="Enter kg" value="${appState.wasteWeights.pharmaceutical}" onclick="event.stopPropagation()" oninput="updateWasteWeight('pharmaceutical',this.value)">
+` : ""}
+</div>
+
+<div class="waste-card other-biomedical ${appState.selectedWaste.otherBiomedical ? "selected":""}"
+onclick="toggleWaste('otherBiomedical')">
+<h4>Other Biomedical</h4>
+<p>Blue category</p>
+${appState.selectedWaste.otherBiomedical ? `
+<label class="waste-weight-label">Approx. weight (kg)</label>
+<input class="waste-weight-input" type="number" min="0" step="0.1" placeholder="Enter kg" value="${appState.wasteWeights.otherBiomedical}" onclick="event.stopPropagation()" oninput="updateWasteWeight('otherBiomedical',this.value)">
+` : ""}
+</div>
+
+</div>
+
+<p class="waste-ready-message">
+${appState.wasteReady
+    ? "Waste has been marked READY. You can now confirm the collection request."
+    : selectedWaste.length
+        ? `${selectedWaste.length} waste type${selectedWaste.length===1 ? "":"s"} selected. Click Mark Waste Ready to continue.`
+        : "Select the waste types available today."}
+</p>
+
+</div>
+
+
+<div class="panel">
+
+<h2>Collection Request</h2>
+
+<div class="request-status">
+
+<div class="row">
+<span class="label">Waste status</span>
+<span class="badge ${appState.wasteReady ? "green":"orange"}">
+${appState.wasteReady ? "WASTE IS READY":"SELECT WASTE TYPES"}
+</span>
+</div>
+
+<div class="row">
+<span class="label">Selected waste</span>
+<span class="value">${selectedWasteText}</span>
+</div>
+
+<div class="row">
+<span class="label">Collection</span>
+<span class="badge ${appState.request ? "blue":"orange"}">
+${appState.request ? "REQUEST SENT":"YET TO COLLECT"}
+</span>
+</div>
+
+<p style="font-size:0.9rem;color:#7c7168;margin-top:15px">
+${appState.request
+    ? "Collection request has been sent to the area supervisor."
+    : "Select the available waste types, mark the waste as READY, and then confirm collection."}
+</p>
+
+<div class="request-actions">
+
+${appState.wasteReady && !appState.request ? `
+<button class="primary" onclick="confirmCollection()">
+Confirm Collection
+</button>
+` : appState.request ? `
+<button class="primary" disabled>
+Collection Confirmed
+</button>
+` : `
+<button class="primary" disabled>
+Confirm Collection
+</button>
+`}
+
+</div>
+
+</div>
+
+<div class="collection-progress">
+
+<div class="collection-step ${collectionStage>=1 ? (collectionStage===1 ? "active" : "done") : ""}">
+<div class="step-number">1</div>
+<strong>Request Confirmed</strong>
+<span>${appState.request ? "Request sent to supervisor" : "Waiting for request"}</span>
+</div>
+
+<div class="collection-step ${collectionStage>=2 ? (collectionStage===2 ? "active" : "done") : ""}">
+<div class="step-number">2</div>
+<strong>Waiting for Worker</strong>
+<span>${appState.assignedWorker ? appState.assignedWorker.name + " assigned" : "Worker assignment pending"}</span>
+</div>
+
+<div class="collection-step ${collectionStage>=3 ? "done" : (collectionStage===2 ? "active" : "")}">
+<div class="step-number">3</div>
+<strong>OTP Pending</strong>
+<span>${hospitalRequestStatus === "OTP Pending" ? "Waiting for hospital verification" : "Pending collector arrival"}</span>
+</div>
+
+<div class="collection-step ${collectionStage>=3 ? "active" : ""}">
+<div class="step-number">4</div>
+<strong>Collection</strong>
+<span>${hospitalRequestStatus === "In Transit" ? "Waste collected and in transit" : hospitalRequestStatus === "Final Disposal Completed" ? "Lifecycle completed" : "Collection pending"}</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+`;
+
+}
+
+
+function toggleWaste(type){
+
+    if(appState.wasteReady || appState.request){
+        return;
+    }
+
+    appState.selectedWaste[type]=!appState.selectedWaste[type];
+
+    if(!appState.selectedWaste[type]){
+        appState.wasteWeights[type]="";
+    }
+
+    hospitalDashboard();
+}
+
+
+function updateWasteWeight(type,value){
+
+    if(appState.wasteReady || appState.request){
+        return;
+    }
+
+    appState.wasteWeights[type]=value;
+}
+
+
+function getWasteDetails(){
+
+    const names={
+        infectious:"Infectious",
+        sharps:"Sharps",
+        pharmaceutical:"Pharmaceutical",
+        otherBiomedical:"Other Biomedical"
+    };
+
+    return Object.keys(appState.selectedWaste)
+        .filter(key=>appState.selectedWaste[key])
+        .map(key=>({
+            type:names[key],
+            weight:Number(appState.wasteWeights[key]) || 0
+        }));
+}
+
+
+function getTotalWasteWeight(){
+    return getWasteDetails()
+        .reduce((total,item)=>total+item.weight,0);
+}
+
+
+function formatWasteDetails(){
+    const details=getWasteDetails();
+
+    return details.length
+        ? details.map(item=>`${item.type} - Approx. ${item.weight} kg`).join("<br>")
+        : "No waste type selected";
+}
+
+
+function markWasteReady(){
+
+    const selectedCount=Object.values(appState.selectedWaste).filter(Boolean).length;
+
+    if(selectedCount===0){
+        alert("Please select at least one available waste type before marking the waste as READY.");
+        return;
+    }
+
+    const missingWeight=Object.keys(appState.selectedWaste)
+        .filter(key=>appState.selectedWaste[key])
+        .some(key=>!appState.wasteWeights[key] || Number(appState.wasteWeights[key])<=0);
+
+    if(missingWeight){
+        alert("Please enter the approximate weight for every selected waste type.");
+        return;
+    }
+
+    appState.wasteReady=true;
+    hospitalDashboard();
+}
+
+
+/* =====================================================
+HOSPITAL CONFIRM
+===================================================== */
+
+function confirmCollection(){
+
+    if(!appState.wasteReady){
+        alert("Please select the available waste types and mark the waste as READY first.");
+        return;
+    }
+
+    const wasteDetails=getWasteDetails();
+    const selectedWaste=wasteDetails.map(item=>item.type);
+    const totalWeight=getTotalWasteWeight();
+
+    appState.request={
+        id:"VYR-REQ-2026-001",
+        hospital:"ABC Multispeciality Hospital",
+        wasteTypes:selectedWaste,
+        wasteDetails:wasteDetails,
+        estimatedWeight:totalWeight,
+        status:"Request Sent"
+    };
+    fetch("http://localhost:5000/api/requests", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(appState.request)
+})
+.then(response => response.json())
+.then(data => {
+    console.log("Backend response:", data);
+})
+.catch(error => {
+    console.error("Backend connection error:", error);
+});
+
+    addNotification({
+        role:"supervisor",
+        title:"New Waste Collection Request",
+        text:`ABC Multispeciality Hospital has biomedical waste ready for collection. ${wasteDetails.map(item=>`${item.type}: Approx. ${item.weight} kg`).join(" | ")}. Total approx. ${totalWeight} kg.`
+    });
+
+    addNotification({
+        role:"cbwtf",
+        title:"New Biomedical Waste Request",
+        text:`ABC Multispeciality Hospital: ${wasteDetails.map(item=>`${item.type}: Approx. ${item.weight} kg`).join(" | ")}. Total approx. ${totalWeight} kg.`
+    });
+
+    alert("Collection confirmed. Supervisor has been notified.");
+
+    hospitalDashboard();
+}
+
+
+/* =====================================================
+SUPERVISOR
+===================================================== */
+
+async function loadBackendRequests(){
+
+    try{
+        const response = await fetch("http://localhost:5000/api/requests");
+        const requests = await response.json();
+
+        if(requests.length > 0){
+            appState.request = requests[requests.length - 1];
+            supervisorDashboard();
+        }
+
+    }catch(error){
+        console.error("Could not load requests:", error);
+    }
+}
+function supervisorDashboard(){
+
+    if(!appState.request){
+    loadBackendRequests();
+}
+    
+
+document.getElementById("mainContent").innerHTML=`
+
+<div class="page-head">
+
+<div>
+<h1>Area Supervisor</h1>
+<p>Manage collection requests and assign available workers.</p>
+</div>
+
+<span class="badge green">
+AREA: MADURAI
+</span>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+<div class="stat-top">
+<span>New Requests</span>
+<span>◉</span>
+</div>
+<div class="stat-number">
+${appState.request ? 1:3}
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-top">
+<span>Available Workers</span>
+<span>♙</span>
+</div>
+<div class="stat-number">
+${appState.assignedWorker ? 1:3}
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-top">
+<span>In Transit</span>
+<span>↗</span>
+</div>
+<div class="stat-number">
+4
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-top">
+<span>Completed</span>
+<span>✓</span>
+</div>
+<div class="stat-number">
+18
+</div>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<div class="panel-head">
+
+<h2>Incoming Hospital Request</h2>
+
+<span class="badge orange">
+${appState.request ? "NEW REQUEST":"WAITING"}
+</span>
+
+</div>
+
+<div class="row">
+<span class="label">Hospital</span>
+<span class="value">ABC Multispeciality Hospital</span>
+</div>
+
+<div class="row">
+<span class="label">Location</span>
+<span class="value">Madurai</span>
+</div>
+
+<div class="row">
+<span class="label">Request ID</span>
+<span class="value">VYR-REQ-2026-001</span>
+</div>
+
+<div class="row">
+<span class="label">Waste Types & Approx. Weight</span>
+<span class="value">${appState.request ? formatWasteDetails() : "Waiting for hospital request"}</span>
+</div>
+
+<div class="row">
+<span class="label">Approximate Total</span>
+<span class="value">${appState.request ? getTotalWasteWeight()+" kg" : "—"}</span>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<div class="panel-head">
+<h2>Available Collection Workers</h2>
+<span class="badge green">LIVE STATUS</span>
+</div>
+
+<div class="worker-list">
+${workerCard(
+    "Worker 01",
+    "WORK-001",
+    "TN 58 AB 1024",
+    appState.assignedWorker?.id === "WORK-001" ? "Busy" : "Available"
+)}
+
+${workerCard(
+    "Worker 02",
+    "WORK-002",
+    "TN 58 CD 2048",
+    appState.assignedWorker?.id === "WORK-002" ? "Busy" : "Available"
+)}
+
+${workerCard(
+    "Worker 03",
+    "WORK-003",
+    "TN 58 EF 3098",
+    appState.assignedWorker?.id === "WORK-003" ? "Busy" : "Available"
+)}
+
+    
+
+</div>
+
+</div>
+
+`;
+}
+
+
+function workerCard(name,id,vehicle,status){
+
+return `
+
+<div class="worker-card">
+
+<h3>${name}</h3>
+
+<p>Worker ID: ${id}</p>
+<p>Vehicle: ${vehicle}</p>
+
+<span class="badge ${status==="Available"?"green":"orange"}">
+${status}
+</span>
+
+${status==="Available" ? `
+
+<button class="primary"
+onclick="assignWorker('${name}','${id}','${vehicle}')">
+Assign Worker
+</button>
+
+`:""}
+
+</div>
+
+`;
+}
+
+
+/* =====================================================
+ASSIGN WORKER
+===================================================== */
+
+function assignWorker(name,id,vehicle){
+
+    appState.assignedWorker={
+        name,
+        id,
+        vehicle
+    };
+
+    fetch("http://localhost:5000/api/assign-worker", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        name: name,
+        id: id,
+        vehicle: vehicle,
+        requestId: appState.request.id,
+        request:appState.request
+    })
+})
+.then(response => response.json())
+.then(data => {
+    console.log("Worker assignment response:", data);
+})
+.catch(error => {
+    console.error("Worker assignment error:", error);
+});
+
+    appState.request.status="Worker Assigned";
+
+    addNotification({
+        role:"worker",
+        title:"New Collection Job Assigned",
+        text:`Collect biomedical waste from ABC Multispeciality Hospital. ${appState.request ? formatWasteDetails().replace(/<br>/g," | ") : "Waste details pending"}. Total approx. ${appState.request ? getTotalWasteWeight() : 0} kg. Vehicle: ${vehicle}.`
+    });
+
+    addNotification({
+        role:"hospital",
+        title:"Collector Assigned",
+        text:`${name} has been assigned for your biomedical waste collection.`
+    });
+
+    alert(`${name} assigned successfully.`);
+
+    supervisorDashboard();
+}
+
+
+/* =====================================================
+WORKER
+===================================================== */
+
+
+async function loadWorkerAssignment(){
+    try{
+        const response = await fetch("http://localhost:5000/api/assign-worker");
+        const data = await response.json();
+
+        if(data.assignment){
+            appState.assignedWorker = data.assignment;
+
+            if(data.assignment.request){
+                appState.request = data.assignment.request;
+            }
+
+            workerDashboard();
+
+            if(appState.otp){
+                reachHospital();
+            }
+
+        }else{
+            workerDashboard();
+
+            if(appState.otp){
+                reachHospital();
+            }
+        }
+
+    }catch(error){
+        console.error("Could not load worker assignment:", error);
+
+        workerDashboard();
+
+        if(appState.otp){
+            reachHospital();
+        }
+    }
+}
+function workerDashboard(){
+
+const worker=appState.assignedWorker;
+const request=appState.request;
+const wasteDetails=request && request.wasteDetails ? request.wasteDetails : [];
+const totalWeight=request ? request.estimatedWeight : 0;
+
+document.getElementById("mainContent").innerHTML=`
+
+<div class="page-head">
+
+<div>
+<h1>Waste Collector</h1>
+<p>View your assigned job, hospital details and collection verification.</p>
+</div>
+
+<span class="badge ${worker ? "orange":"green"}">
+${worker ? "ASSIGNED JOB":"AVAILABLE"}
+</span>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+<div class="stat-top">
+<span>Assigned Job</span>
+<span>◉</span>
+</div>
+<div class="stat-number">
+${worker ? 1:0}
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-top">
+<span>Total Waste</span>
+<span>⚖</span>
+</div>
+<div class="stat-number">
+${totalWeight} kg
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-top">
+<span>Collection Status</span>
+<span>↗</span>
+</div>
+<div class="stat-number" style="font-size:1.05rem">
+${request ? request.status : "NO JOB"}
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-top">
+<span>Worker Status</span>
+<span>●</span>
+</div>
+<div class="stat-number" style="font-size:1.25rem">
+${worker ? "BUSY":"FREE"}
+</div>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<div class="panel-head">
+
+<h2>My Assigned Collection Job</h2>
+
+<span class="badge ${worker ? "orange":"green"}">
+${worker ? "ASSIGNED":"NO ACTIVE JOB"}
+</span>
+
+</div>
+
+${worker && request ? `
+
+<div class="job-card">
+
+<div class="job-top">
+
+<div>
+<div class="job-id">JOB ID: ${request.id}</div>
+<div class="job-title">${request.hospital}</div>
+</div>
+
+<span class="badge orange">
+${totalWeight} KG
+</span>
+
+</div>
+
+<div class="row">
+<span class="label">Hospital Location</span>
+<span class="value">Madurai</span>
+</div>
+
+<div class="row">
+<span class="label">Vehicle</span>
+<span class="value">${worker.vehicle}</span>
+</div>
+
+<div class="row">
+<span class="label">Collection Status</span>
+<span class="badge blue">
+${request.status}
+</span>
+</div>
+
+</div>
+
+<div class="panel" style="margin-top:18px;background:#fffdfa">
+
+<h2>Waste Details from Hospital</h2>
+
+<div class="waste-grid worker-waste-grid">
+
+${wasteDetails.length ? wasteDetails.map(item=>`\
+<div class="waste-card">
+<h4>${item.type}</h4>
+<p>Approx. ${item.weight} kg</p>
+</div>
+`).join("") : `
+<div class="waste-card">
+<h4>Biomedical Waste</h4>
+<p>Details pending</p>
+</div>
+`}
+
+</div>
+
+<div class="row" style="margin-top:18px">
+<span class="label">Approximate Total</span>
+<span class="value">${totalWeight} kg</span>
+</div>
+
+<div class="action-row">
+
+<button class="primary"
+onclick="reachHospital()">
+Reach Hospital
+</button>
+
+</div>
+
+</div>
+
+` : `<p style="color:#7c7168">You are currently free. A new collection job will appear here after the supervisor assigns you.</p>`}
+
+</div>
+
+<div id="workerAction"></div>
+
+`;
+}
+
+
+/* =====================================================
+REACH HOSPITAL
+===================================================== */
+
+function reachHospital(){
+
+    if(appState.request){
+        appState.request.status="OTP Pending";
+    }
+
+    document.getElementById("workerAction").innerHTML=`
+
+<div class="panel">
+
+<h2>Hospital Arrival Verification</h2>
+
+<p style="font-size:0.95rem;color:#7c7168">
+You have reached the hospital. Ask the authorized hospital staff to generate the collection OTP.
+</p>
+
+<div class="request-status" style="margin-top:18px">
+
+<div class="row">
+<span class="label">Hospital</span>
+<span class="value">ABC Multispeciality Hospital</span>
+</div>
+
+<div class="row">
+<span class="label">Waste Types</span>
+<span class="value">${appState.request ? formatWasteDetails().replace(/<br>/g,", ") : "—"}</span>
+</div>
+
+<div class="row">
+<span class="label">Approximate Total</span>
+<span class="value">${appState.request ? getTotalWasteWeight()+" kg" : "—"}</span>
+</div>
+
+<div class="row">
+<span class="label">Verification</span>
+
+<span class="badge orange">
+${appState.otp ? "OTP GENERATED" : "WAITING FOR OTP"}
+</span>
+
+</div>
+
+${
+appState.otp
+?
+`
+<div class="field" style="margin-top:19px">
+<label>Enter Hospital OTP</label>
+<input
+id="workerOTP"
+class="otp-input"
+maxlength="4"
+placeholder="••••"
+>
+</div>
+
+<button class="primary"
+onclick="verifyWorkerOTP()">
+Verify & Collect Waste
+</button>
+`
+:
+`
+<button class="primary"
+style="margin-top:19px"
+onclick="getOTP()">
+Get OTP
+</button>
+`
+}
+
+</div>
+
+</div>
+
+`;
+}
+
+
+/* =====================================================
+GET OTP
+===================================================== */
+
+function getOTP(){
+
+    appState.otp=
+        Math.floor(1000+Math.random()*9000).toString();
+
+    addNotification({
+        role:"hospital",
+        title:"Collector has arrived",
+        text:`Authorized collector has reached your hospital. Collection OTP generated: ${appState.otp}`
+    });
+
+    document.getElementById("workerAction").innerHTML=`
+
+<div class="panel">
+
+<h2>Enter Hospital OTP</h2>
+
+<p style="font-size:0.95rem;color:#7c7168">
+Ask the hospital management for the OTP shown in their secure notification.
+</p>
+
+<div class="field" style="margin-top:19px">
+
+<label>Collection OTP</label>
+
+<input
+id="workerOTP"
+class="otp-input"
+maxlength="4"
+placeholder="••••"
+>
+
+</div>
+
+<button class="primary"
+onclick="verifyWorkerOTP()">
+Verify & Collect Waste
+</button>
+
+</div>
+
+`;
+
+    alert("OTP has been sent to Hospital Management.");
+}
+
+
+/* =====================================================
+VERIFY OTP
+===================================================== */
+
+function verifyWorkerOTP(){
+
+    const entered=
+        document.getElementById("workerOTP").value;
+
+    if(entered!==appState.otp){
+
+        alert("Invalid OTP.");
+        return;
+    }
+
+    appState.request.status="In Transit";
+    fetch("http://localhost:5000/api/collection-status", {
+    method:"POST",
+    headers:{
+        "Content-Type":"application/json"
+    },
+    body:JSON.stringify({
+        requestId:appState.request.id,
+        status:"In Transit"
+    })
+})
+.then(response=>response.json())
+.then(data=>{
+    console.log("Collection status backend response:", data);
+})
+.catch(error=>{
+    console.error("Collection status backend error:", error);
+});
+
+    fetch("http://localhost:5000/api/verify-otp", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        requestId: appState.request.id,
+        otp: entered
+    })
+})
+.then(response => response.json())
+.then(data => {
+    console.log("OTP backend response:", data);
+})
+.catch(error => {
+    console.error("OTP backend error:", error);
+});
+
+    addNotification({
+        role:"cbwtf",
+        title:"Waste In Transit",
+        text:"Biomedical waste from ABC Multispeciality Hospital is now in transit to CBWTF."
+    });
+
+    addNotification({
+        role:"hospital",
+        title:"Waste Collected",
+        text:"Your biomedical waste has been collected by the authorized worker and is now in transit."
+    });
+
+    addNotification({
+        role:"supervisor",
+        title:"Collection Completed at Hospital",
+        text:"Worker has verified OTP and collected waste from ABC Multispeciality Hospital."
+    });
+
+    document.getElementById("workerAction").innerHTML=`
+
+<div class="panel">
+
+<div class="notification">
+
+<div class="notification-icon">
+✓
+</div>
+
+<div>
+
+<strong>Waste Collected Successfully</strong>
+
+<p>
+OTP verified. Waste has been collected from the hospital.
+</p>
+
+<span class="badge blue">
+IN TRANSIT
+</span>
+
+</div>
+
+</div>
+
+<div class="row">
+<span class="label">Waste Types</span>
+<span class="value">${appState.request ? formatWasteDetails().replace(/<br>/g,", ") : "—"}</span>
+</div>
+
+<div class="row">
+<span class="label">Approximate Total</span>
+<span class="value">${appState.request ? getTotalWasteWeight()+" kg" : "—"}</span>
+</div>
+
+<div class="row">
+<span class="label">Destination</span>
+<span class="value">CBWTF Facility - Madurai</span>
+</div>
+
+</div>
+
+`;
+
+    alert("OTP verified. Waste is now IN TRANSIT.");
+}
+
+
+/* =====================================================
+CBWTF
+===================================================== */
+
+function cbwtfDashboard(){
+
+document.getElementById("mainContent").innerHTML=`
+
+<div class="page-head">
+
+<div>
+<h1>CBWTF Authority</h1>
+<p>Receive, verify, process and close biomedical waste records.</p>
+</div>
+
+<span class="badge green">
+AUTHORIZED FACILITY
+</span>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+<div class="stat-top">
+<span>Incoming</span>
+<span>↗</span>
+</div>
+<div class="stat-number">
+${appState.request && appState.request.status==="In Transit" ? 1:5}
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-top">
+<span>Processing</span>
+<span>◌</span>
+</div>
+<div class="stat-number">
+8
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-top">
+<span>Mismatch Alerts</span>
+<span>!</span>
+</div>
+<div class="stat-number">
+${appState.actualWeight && appState.actualWeight!==20 ? 1:1}
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-top">
+<span>Disposed</span>
+<span>✓</span>
+</div>
+<div class="stat-number">
+25
+</div>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<div class="panel-head">
+
+<h2>Incoming Waste</h2>
+
+<span class="badge blue">
+${appState.request ? appState.request.status:"IN TRANSIT"}
+</span>
+
+</div>
+
+<div class="row">
+<span class="label">Hospital</span>
+<span class="value">ABC Multispeciality Hospital</span>
+</div>
+
+<div class="row">
+<span class="label">Collector</span>
+<span class="value">${appState.assignedWorker ? appState.assignedWorker.name:"Worker 01"}</span>
+</div>
+
+<div class="row">
+<span class="label">Request ID</span>
+<span class="value">VYR-REQ-2026-001</span>
+</div>
+
+<div class="row">
+<span class="label">Waste Types & Approx. Weight</span>
+<span class="value">${appState.request ? formatWasteDetails() : "Waiting for hospital request"}</span>
+</div>
+
+<div class="row">
+<span class="label">Approximate Total</span>
+<span class="value">${appState.request ? getTotalWasteWeight()+" kg" : "—"}</span>
+</div>
+
+<div class="row">
+<span class="label">Current Status</span>
+<span class="badge blue">
+${appState.request ? appState.request.status:"IN TRANSIT"}
+</span>
+</div>
+
+<br>
+
+<button class="primary"
+onclick="receiveWaste()">
+Receive Waste
+</button>
+
+</div>
+
+
+<div id="cbwtfAction"></div>
+
+`;
+}
+
+
+/* =====================================================
+RECEIVE
+===================================================== */
+
+function receiveWaste(){
+
+document.getElementById("cbwtfAction").innerHTML=`
+
+<div class="panel">
+
+<h2>Weight Verification</h2>
+
+<p style="font-size:0.95rem;color:#7c7168">
+Verify the actual received weight against the hospital estimate.
+</p>
+
+<div class="row" style="margin-top:16px">
+<span class="label">Hospital Estimate</span>
+<span class="value">20 kg</span>
+</div>
+
+<div class="field" style="margin-top:18px">
+
+<label>Actual Received Weight</label>
+
+<input
+id="actualWeightInput"
+type="number"
+placeholder="Enter actual weight in kg"
+>
+
+</div>
+
+<button class="primary"
+onclick="verifyWeight()">
+Verify Weight
+</button>
+
+</div>
+
+`;
+}
+
+
+/* =====================================================
+WEIGHT
+===================================================== */
+
+function verifyWeight(){
+
+    const actual =
+    Number(document.getElementById("actualWeightInput").value);
+
+    if(!actual){
+        alert("Enter actual received weight.");
+        return;
+    }
+
+    const estimated =
+    appState.request ? getTotalWasteWeight() : 0;
+
+    appState.actualWeight = actual;
+
+    const difference =
+    Math.abs(estimated - actual);
+
+    if(difference > 2){
+
+        addNotification({
+            role:"supervisor",
+            title:"Weight Mismatch Alert",
+            text:`Hospital estimate: ${estimated} kg. CBWTF received: ${actual} kg. Difference: ${difference} kg.`
+        });
+
+        document.getElementById("cbwtfAction").innerHTML=`
+
+        <div class="panel">
+
+        <div class="notification">
+
+        <div class="notification-icon">
+        !
+        </div>
+
+        <div>
+
+        <strong>Weight Mismatch Detected</strong>
+
+        <p>
+        Estimated: ${estimated} kg<br>
+        Received: ${actual} kg<br>
+        Difference: ${difference} kg
+        </p>
+
+        <span class="badge red">
+        ACTION REQUIRED
+        </span>
+
+        </div>
+
+        </div>
+
+        <button class="primary"
+        onclick="startProcessing()">
+        Acknowledge & Continue
+        </button>
+
+        </div>
+
+        `;
+
+    }else{
+
+        document.getElementById("cbwtfAction").innerHTML=`
+
+        <div class="panel">
+
+        <div class="notification">
+
+        <div class="notification-icon">
+        ✓
+        </div>
+
+        <div>
+
+        <strong>Weight Verified</strong>
+
+        <p>
+        Estimated: ${estimated} kg<br>
+        Received: ${actual} kg<br>
+        Difference: ${difference} kg
+        </p>
+
+        <span class="badge green">
+        VERIFIED
+        </span>
+
+        </div>
+
+        </div>
+
+        <button class="primary"
+        onclick="startProcessing()">
+        Start Processing
+        </button>
+
+        </div>
+
+        `;
+    }
+
+    appState.request.status="Received at CBWTF";
+}
+
+
+/* =====================================================
+PROCESSING
+===================================================== */
+
+function startProcessing(){
+
+    appState.processing=true;
+    appState.request.status="Processing";
+
+    document.getElementById("cbwtfAction").innerHTML=`
+
+<div class="panel">
+
+<h2>Waste Processing</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<h4>Waste Received</h4>
+<p>CBWTF confirmed physical receipt.</p>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<h4>Weight Verified</h4>
+<p>Estimated and actual weights recorded.</p>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<h4>Processing</h4>
+<p>Biomedical waste treatment is in progress.</p>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<h4>Final Disposal</h4>
+<p>Pending completion of treatment.</p>
+</div>
+
+</div>
+
+<button class="primary"
+onclick="completeDisposal()">
+Mark Final Disposal Complete
+</button>
+
+</div>
+
+`;
+
+    addNotification({
+        role:"worker",
+        title:"Waste Received at CBWTF",
+        text:"Your collection job has been received by the CBWTF. You are released for the next assignment."
+    });
+
+    alert("Waste processing started.");
+}
+
+
+/* =====================================================
+FINAL DISPOSAL
+===================================================== */
+
+function completeDisposal(){
+
+    appState.disposed=true;
+    appState.processing=false;
+    appState.request.status="Final Disposal Completed";
+
+    addNotification({
+        role:"hospital",
+        title:"Waste Disposal Completed",
+        text:"Your biomedical waste collection and final disposal record has been completed."
+    });
+
+    addNotification({
+        role:"supervisor",
+        title:"Collection Lifecycle Completed",
+        text:"The biomedical waste request has completed processing and final disposal."
+    });
+
+    appState.assignedWorker=null;
+
+    document.getElementById("cbwtfAction").innerHTML=`
+
+<div class="panel">
+
+<div class="notification">
+
+<div class="notification-icon">
+✓
+</div>
+
+<div>
+
+<strong>Final Disposal Completed</strong>
+
+<p>
+The complete waste lifecycle has been recorded in VYORA.
+</p>
+
+<span class="badge green">
+COMPLETED
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+NOTIFICATIONS
+===================================================== */
+
+function playNotificationSound(){
+    try{
+        const AudioContextClass=window.AudioContext||window.webkitAudioContext;
+        if(!AudioContextClass) return;
+
+        const ctx=new AudioContextClass();
+        const now=ctx.currentTime;
+
+        [0,0.18].forEach((offset,index)=>{
+            const oscillator=ctx.createOscillator();
+            const gain=ctx.createGain();
+
+            oscillator.type="sine";
+            oscillator.frequency.setValueAtTime(index===0?880:1046.5,now+offset);
+            gain.gain.setValueAtTime(0.0001,now+offset);
+            gain.gain.exponentialRampToValueAtTime(0.16,now+offset+0.02);
+            gain.gain.exponentialRampToValueAtTime(0.0001,now+offset+0.16);
+
+            oscillator.connect(gain);
+            gain.connect(ctx.destination);
+            oscillator.start(now+offset);
+            oscillator.stop(now+offset+0.18);
+        });
+    }catch(error){
+        // Sound is optional; notification still appears if the browser blocks audio.
+    }
+}
+
+function showNotificationPopup(notification){
+    const popup=document.getElementById("notificationPopup");
+    const title=document.getElementById("notificationPopupTitle");
+    const text=document.getElementById("notificationPopupText");
+
+    if(!popup || !title || !text) return;
+
+    title.innerText=notification.title;
+    text.innerText=notification.text;
+    popup.classList.add("show");
+
+    playNotificationSound();
+
+    clearTimeout(window.vyoraNotificationTimer);
+    window.vyoraNotificationTimer=setTimeout(()=>{
+        popup.classList.remove("show");
+    },4500);
+}
+
+function addNotification(notification){
+    const item={
+        ...notification,
+        id:"NOTIF-"+Date.now()+"-"+Math.random().toString(36).slice(2,7)
+    };
+
+    appState.notifications.push(item);
+
+    // Only the intended role receives the popup and sound.
+    if(currentRole===item.role){
+        appState.seenNotifications[item.id]=true;
+        showNotificationPopup(item);
+    }
+}
+
+function showLatestPendingNotification(){
+    const list=appState.notifications.filter(n=>n.role===currentRole && !appState.seenNotifications[n.id]);
+
+    if(!list.length) return;
+
+    const latest=list[list.length-1];
+    appState.seenNotifications[latest.id]=true;
+    showNotificationPopup(latest);
+}
+
+function notificationsPage(){
+
+let list=appState.notifications.filter(n=>n.role===currentRole);
+
+if(!list.length){
+
+    document.getElementById("mainContent").innerHTML=`
+
+    <div class="page-head">
+    <div>
+    <h1>Notifications</h1>
+    <p>No new notifications.</p>
+    </div>
+    </div>
+
+    `;
+
+    return;
+}
+
+document.getElementById("mainContent").innerHTML=`
+
+<div class="page-head">
+
+<div>
+<h1>Notifications</h1>
+<p>Important updates from your VYORA workflow.</p>
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="${(currentRole==="worker" || currentRole==="cbwtf") ? "notification-compact-list" : ""}">
+${list.map(n=>`
+
+<div class="notification ${(currentRole==="worker" || currentRole==="cbwtf") ? "notification-compact" : ""}">
+
+<div class="notification-icon">
+🔔
+</div>
+
+<div>
+
+<strong>${n.title}</strong>
+
+<p>${n.text}</p>
+
+</div>
+
+</div>
+
+`).join("")}
+</div>
+
+</div>
+
+`;
+}
+
+
+/* =====================================================
+TRACKING
+===================================================== */
+
+function trackingPage(){
+
+document.getElementById("mainContent").innerHTML=`
+
+<div class="page-head">
+
+<div>
+<h1>Waste Tracking</h1>
+<p>Track one waste request from hospital to final disposal.</p>
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="row">
+<span class="label">Request ID</span>
+<span class="value">VYR-REQ-2026-001</span>
+</div>
+
+<div class="row">
+<span class="label">Hospital</span>
+<span class="value">ABC Multispeciality Hospital</span>
+</div>
+
+<div class="row">
+<span class="label">Estimated Weight</span>
+<span class="value">${appState.request ? getTotalWasteWeight() + " kg" : "—"}</span>
+</div>
+
+<div class="row">
+<span class="label">Actual Weight</span>
+<span class="value">
+${appState.actualWeight ? appState.actualWeight+" kg":"Pending"}
+</span>
+</div>
+
+<br>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<h4>Hospital Waste Ready</h4>
+<p>Waste prepared and collection request created.</p>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<h4>Supervisor Assignment</h4>
+<p>${appState.assignedWorker ? "Worker assigned.":"Waiting for assignment."}</p>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<h4>Hospital Collection</h4>
+<p>${appState.request && appState.request.status!=="Request Sent" ? "OTP verified / collection completed.":"Pending."}</p>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<h4>CBWTF Receipt</h4>
+<p>${appState.actualWeight ? "Waste received and weight recorded.":"Pending."}</p>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<h4>Final Disposal</h4>
+<p>${appState.disposed ? "Completed.":"Pending."}</p>
+</div>
+
+</div>
+
+</div>
+
+`;
+}
+
+
+/* =====================================================
+HISTORY
+===================================================== */
+
+function historyPage(){
+
+if(currentRole==="worker"){
+
+const workerDetails=appState.request && appState.request.wasteDetails ? appState.request.wasteDetails : [];
+
+document.getElementById("mainContent").innerHTML=`
+
+<div class="page-head">
+<div>
+<h1>Waste History</h1>
+<p>Centralized traceability record.</p>
+</div>
+</div>
+
+<div class="panel history-compact-panel">
+
+<div class="history-compact-head">
+<div>
+<strong>Waste Collector from Hospital</strong>
+<span>VYR-REQ-2026-001</span>
+</div>
+<span class="badge ${appState.disposed?"green":"orange"}">${appState.disposed?"COMPLETED":"ACTIVE"}</span>
+</div>
+
+<div class="history-mini-grid">
+<div class="history-mini-card">
+<span>Hospital</span>
+<strong>ABC Multispeciality Hospital</strong>
+</div>
+<div class="history-mini-card">
+<span>Collector</span>
+<strong>${appState.assignedWorker ? appState.assignedWorker.name:"Worker 01"}</strong>
+</div>
+<div class="history-mini-card">
+<span>Approximate Total</span>
+<strong>${appState.request ? getTotalWasteWeight()+" kg":"Pending"}</strong>
+</div>
+<div class="history-mini-card">
+<span>Reach Hospital</span>
+<strong>${appState.request && ["OTP Pending","In Transit","Received at CBWTF"].includes(appState.request.status) ? "REACHED":"PENDING"}</strong>
+</div>
+</div>
+
+<div class="history-waste-mini worker-history-waste-mini">
+<span>Waste Details from Hospital</span>
+<div class="history-waste-list">
+${workerDetails.length ? workerDetails.map(item=>`<div class="history-waste-item"><strong>${item.type}</strong><span>Approx. ${item.weight} kg</span></div>`).join("") : `<div class="history-waste-item"><strong>Biomedical Waste</strong><span>Details pending</span></div>`}
+</div>
+</div>
+
+<div class="history-mini-grid history-status-grid">
+<div class="history-mini-card"><span>Estimated Weight</span><strong>${appState.request ? getTotalWasteWeight()+" kg":"Pending"}</strong></div>
+<div class="history-mini-card"><span>Actual Weight</span><strong>${appState.actualWeight ? appState.actualWeight+" kg":"Pending"}</strong></div>
+<div class="history-mini-card"><span>Final Status</span><strong>${appState.disposed?"FINAL DISPOSAL COMPLETED":"IN PROGRESS"}</strong></div>
+</div>
+
+</div>
+
+`;
+return;
+}
+
+if(currentRole==="cbwtf"){
+
+const cbwtfDetails=appState.request && appState.request.wasteDetails ? appState.request.wasteDetails : [];
+
+document.getElementById("mainContent").innerHTML=`
+
+<div class="page-head">
+<div>
+<h1>Waste History</h1>
+<p>Centralized traceability record.</p>
+</div>
+</div>
+
+<div class="panel history-compact-panel">
+
+<div class="history-compact-head">
+<div>
+<strong>Biomedical Waste Received</strong>
+<span>VYR-REQ-2026-001</span>
+</div>
+<span class="badge ${appState.disposed?"green":"orange"}">${appState.disposed?"COMPLETED":"ACTIVE"}</span>
+</div>
+
+<div class="history-mini-grid">
+<div class="history-mini-card"><span>Hospital</span><strong>ABC Multispeciality Hospital</strong></div>
+<div class="history-mini-card"><span>Collector</span><strong>${appState.assignedWorker ? appState.assignedWorker.name:"Worker 01"}</strong></div>
+<div class="history-mini-card"><span>Estimated Total</span><strong>${appState.request ? getTotalWasteWeight()+" kg":"Pending"}</strong></div>
+<div class="history-mini-card"><span>Actual Weight</span><strong>${appState.actualWeight ? appState.actualWeight+" kg":"Pending"}</strong></div>
+</div>
+
+<div class="history-waste-mini">
+<span>Waste Type & Approximate Weight</span>
+<div class="history-waste-list">
+${cbwtfDetails.length ? cbwtfDetails.map(item=>`<div class="history-waste-item"><strong>${item.type}</strong><span>Approx. ${item.weight} kg</span></div>`).join("") : `<div class="history-waste-item"><strong>Biomedical Waste</strong><span>Details pending</span></div>`}
+</div>
+</div>
+
+<div class="history-mini-grid history-status-grid">
+<div class="history-mini-card"><span>Final Status</span><strong>${appState.disposed?"FINAL DISPOSAL COMPLETED":"IN PROGRESS"}</strong></div>
+</div>
+
+</div>
+
+`;
+return;
+}
+
+document.getElementById("mainContent").innerHTML=`
+
+<div class="page-head">
+
+<div>
+<h1>Waste History</h1>
+<p>Centralized traceability record.</p>
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="row">
+<span class="label">VYR-REQ-2026-001</span>
+<span class="badge ${appState.disposed?"green":"orange"}">
+${appState.disposed?"COMPLETED":"ACTIVE"}
+</span>
+</div>
+
+<div class="row">
+<span class="label">Hospital</span>
+<span class="value">ABC Multispeciality Hospital</span>
+</div>
+
+<div class="row">
+<span class="label">Collector</span>
+<span class="value">
+${appState.assignedWorker ? appState.assignedWorker.name:"Worker 01"}
+</span>
+</div>
+
+<div class="row">
+<span class="label">Estimated Weight</span>
+<span class="value">20 kg</span>
+</div>
+
+<div class="row">
+<span class="label">Actual Weight</span>
+<span class="value">
+${appState.actualWeight ? appState.actualWeight+" kg":"Pending"}
+</span>
+</div>
+
+<div class="row">
+<span class="label">Final Status</span>
+<span class="badge ${appState.disposed?"green":"blue"}">
+${appState.disposed?"FINAL DISPOSAL COMPLETED":"IN PROGRESS"}
+</span>
+</div>
+
+</div>
+
+`;
+}
+
+
+/* =====================================================
+PROFILE
+===================================================== */
+
+function profilePage(){
+
+if(currentRole==="hospital"){
+
+document.getElementById("mainContent").innerHTML=`
+
+<div class="page-head">
+
+<div>
+<h1>Hospital Profile</h1>
+<p>Registered institution information.</p>
+</div>
+
+<span class="badge green">
+VERIFIED
+</span>
+
+</div>
+
+<div class="panel">
+
+<div class="profile-grid">
+
+<div class="profile-item">
+<span>Hospital Name</span>
+<strong>ABC Multispeciality Hospital</strong>
+</div>
+
+<div class="profile-item">
+<span>Hospital ID</span>
+<strong>HOSP-1024</strong>
+</div>
+
+<div class="profile-item">
+<span>Government Registration</span>
+<strong>TN-GOV-HOSP-78421</strong>
+</div>
+
+<div class="profile-item">
+<span>Authority</span>
+<strong>Tamil Nadu Health Authority</strong>
+</div>
+
+<div class="profile-item">
+<span>Hospital Address</span>
+<strong>Madurai, Tamil Nadu</strong>
+</div>
+
+<div class="profile-item">
+<span>Contact Number</span>
+<strong>0452-XXXXXXX</strong>
+</div>
+
+<div class="profile-item">
+<span>Management User</span>
+<strong>HOSP-MGR-01</strong>
+</div>
+
+<div class="profile-item">
+<span>Registration Status</span>
+<strong>Active & Verified</strong>
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+if(currentRole==="worker"){
+
+document.getElementById("mainContent").innerHTML=`
+
+<div class="page-head">
+<div>
+<h1>Worker Profile</h1>
+<p>Authorized waste collection personnel.</p>
+</div>
+</div>
+
+<div class="panel">
+
+<div class="profile-grid">
+
+<div class="profile-item">
+<span>Name</span>
+<strong>Worker 01</strong>
+</div>
+
+<div class="profile-item">
+<span>Worker ID</span>
+<strong>WORK-001</strong>
+</div>
+
+<div class="profile-item">
+<span>Mobile Number</span>
+<strong>9876543210</strong>
+</div>
+
+<div class="profile-item">
+<span>Assigned Vehicle</span>
+<strong>TN 58 AB 1024</strong>
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+if(currentRole==="supervisor"){
+
+document.getElementById("mainContent").innerHTML=`
+
+<div class="page-head">
+<div>
+<h1>Supervisor Profile</h1>
+<p>Area-level collection management.</p>
+</div>
+</div>
+
+<div class="panel">
+
+<div class="profile-grid">
+
+<div class="profile-item">
+<span>Name</span>
+<strong>Panneer</strong>
+</div>
+
+<div class="profile-item">
+<span>Supervisor ID</span>
+<strong>SUP-MDU-01</strong>
+</div>
+
+<div class="profile-item">
+<span>CBWTF Facility</span>
+<strong>Madurai CBWTF</strong>
+</div>
+
+<div class="profile-item">
+<span>Assigned Area</span>
+<strong>Madurai Urban Area</strong>
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+if(currentRole==="cbwtf"){
+
+document.getElementById("mainContent").innerHTML=`
+
+<div class="page-head">
+<div>
+<h1>CBWTF Facility Profile</h1>
+<p>Authorized biomedical waste treatment facility.</p>
+</div>
+
+<span class="badge green">
+AUTHORIZED
+</span>
+
+</div>
+
+<div class="panel">
+
+<div class="profile-grid">
+
+<div class="profile-item">
+<span>Facility Name</span>
+<strong>Madurai CBWTF Facility</strong>
+</div>
+
+<div class="profile-item">
+<span>Facility ID</span>
+<strong>CBWTF-MDU-01</strong>
+</div>
+
+<div class="profile-item">
+<span>Authority ID</span>
+<strong>AUTH-01</strong>
+</div>
+
+<div class="profile-item">
+<span>Location</span>
+<strong>Madurai, Tamil Nadu</strong>
+</div>
+
+<div class="profile-item">
+<span>Facility Status</span>
+<strong>Operational</strong>
+</div>
+
+<div class="profile-item">
+<span>Contact</span>
+<strong>0452-XXXXXXX</strong>
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
